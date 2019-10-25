@@ -11,7 +11,8 @@ module.exports = {
 			options: {
 				connectionString: `mongodb+srv://user:aQ147258369@cluster0-qat52.mongodb.net`,
 				dbName: `test`,
-				collection: [`manga`, `chapters`],
+				preserveObjectIds: true,
+				collection: [`chapters`,`manga`],
 				extraParams: {
 					ssl: true,
 					retryWrites: true,
