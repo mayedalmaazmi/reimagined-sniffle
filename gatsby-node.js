@@ -5,9 +5,19 @@
  */
 
 // You can delete this file if you're not using it
+
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage } = actions
+  if (page.path === `/`) {
+    page.matchPath = `/*`
+    createPage(page)
+  }
+}
+
 const path = require(`path`)
 exports.createPages = async ({ graphql, actions }) => {
 	const { createPage } = actions
+
 	const blogPostTemplate = path.resolve(`src/templates/blog-post.js`)
 	const info = path.resolve(`src/templates/info.js`)
 	// **Note:** The graphql function call returns a Promise
